@@ -37,7 +37,7 @@ const CategoryList = async () => {
           >
             <Link
               style={{ backgroundColor: bg[index] }}
-              href={`/blog?cat=style`}
+              href={`/blog?cat=${category.slug}`}
               className="d-flex align-items-center justify-content-center gap-2 text-capitalize px-5 py-3 rounded-3"
             >
               <Image

@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import React from "react";
 
-export default function Pagination({ page, hasPrev, hasNext }) {
+export default function Pagination({ page, cat, hasPrev, hasNext }) {
   const router = useRouter();
   return (
     <div className="d-flex justify-content-between">
@@ -10,7 +10,11 @@ export default function Pagination({ page, hasPrev, hasNext }) {
         disabled={!hasPrev}
         className="btn btn-danger"
         onClick={() => {
-          router.push(`?page=${page - 1}`);
+          {
+            cat
+              ? router.push(`?page=${page - 1}&cat=${cat}`)
+              : router.push(`?page=${page - 1}`);
+          }
         }}
       >
         Previous
@@ -19,7 +23,11 @@ export default function Pagination({ page, hasPrev, hasNext }) {
         disabled={!hasNext}
         className="btn btn-danger"
         onClick={() => {
-          router.push(`?page=${page + 1}`);
+          {
+            cat
+              ? router.push(`?page=${page + 1}&cat=${cat}`)
+              : router.push(`?page=${page + 1}`);
+          }
         }}
       >
         Next

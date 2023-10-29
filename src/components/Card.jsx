@@ -10,15 +10,20 @@ export default function Card({ key, item }) {
       </div>
       <div className="card-text">
         <div>
-          <span className="text-secondary">11.02.2023 - </span>
-          <span className="text-danger">Culture</span>
+          <span className="text-secondary">
+            {item.createdAt.substring(0, 10)} -{" "}
+          </span>
+          <span className="text-danger text-capitalize">{item.catSlug}</span>
         </div>
-        <Link href="/">
+        <Link href={`posts/${item.slug}`}>
           <h1 className="fs-2 fw-bold">{item.title}</h1>
         </Link>
         <p className="card-desc">{item.desc}</p>
         <div>
-          <Link className="border-bottom border-danger pb-1" href="/">
+          <Link
+            className="border-bottom border-danger pb-1"
+            href={`posts/${item.slug}`}
+          >
             Read More
           </Link>
         </div>
